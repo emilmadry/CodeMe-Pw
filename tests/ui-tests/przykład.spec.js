@@ -10,11 +10,9 @@ test('Input', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Enter first & last name' }).fill('Test');
   await page.locator('#join').click();
   await page.locator('#join').fill('I am goodnot really');
-  // await expect(page.locator('#getMe')).toContainText('ortonikc');
   let textValue = await page.locator('#getMe').inputValue();
   expect(textValue).toBe('ortonikc');
   await page.locator('#clearMe').click();
-  await page.locator('.card-ttile').fill('');
   await expect(page.locator('#dontwrite')).not.toBeEditable();
 });
 
