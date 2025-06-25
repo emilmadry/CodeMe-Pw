@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
 
+dotenv.config();
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
@@ -19,9 +21,11 @@ export default defineConfig({
       testMatch: 'tests/api-tests/**/*.spec.js',
       use: {
         baseURL: 'https://reqres.in/',
+
         extraHTTPHeaders: {
-          'x-api-key': 'reqres-free-v1'
+          'x-api-key': process.env.API_KEY ?? ''
         },
+        
         trace: 'on-first-retry',
         ...devices['Desktop Chrome']
       },

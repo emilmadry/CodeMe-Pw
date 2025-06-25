@@ -8,6 +8,8 @@ on:
     - cron: '0 12 * * *'
     - cron: '0 16 * * *'
     - cron: '0 21 * * *'
+  workflow_dispatch:
+
 jobs:
   test:
     timeout-minutes: 60
