@@ -20,12 +20,12 @@ export default defineConfig({
       name: 'reqres',
       testMatch: 'tests/api-tests/**/*.spec.js',
       use: {
-        baseURL: 'https://reqres.in/',
+        baseURL: process.env.API_URL ?? '',
 
         extraHTTPHeaders: {
           'x-api-key': process.env.API_KEY ?? ''
         },
-        
+
         trace: 'on-first-retry',
         ...devices['Desktop Chrome']
       },
@@ -34,7 +34,7 @@ export default defineConfig({
       name: 'letcode',
       testMatch: 'tests/ui-tests/**/*.spec.js',
       use: {
-        baseURL: 'https://letcode.in/',
+        baseURL: process.env.UI_URL ?? '',
         trace: 'on-first-retry',
         ...devices['Desktop Chrome']
       },
