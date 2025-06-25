@@ -23,11 +23,11 @@ export default defineConfig({
         baseURL: process.env.API_URL ?? '',
 
         extraHTTPHeaders: {
-          'x-api-key': process.env.API_KEY ?? ''
+          'x-api-key': process.env.API_KEY ?? '',
         },
 
         trace: 'on-first-retry',
-        ...devices['Desktop Chrome']
+        ...devices['Desktop Chrome'],
       },
     },
     {
@@ -36,7 +36,7 @@ export default defineConfig({
       use: {
         baseURL: process.env.UI_URL ?? '',
         trace: 'on-first-retry',
-        ...devices['Desktop Chrome']
+        ...devices['Desktop Chrome'],
       },
     },
   ],

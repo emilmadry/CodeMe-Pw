@@ -1,22 +1,18 @@
 import { test, expect } from '@playwright/test';
 import { Dane } from '../../pages/dane';
 
-
 const dane = new Dane();
 
-dane.produkty.forEach(produkt => {
+dane.produkty.forEach((produkt) => {
   test(`sprawdzam produkt: ${produkt.name}`, async ({ page }) => {
     await page.goto(`product/${produkt.id}`);
 
     const pageContent = await page.textContent('.card .title');
     expect(pageContent).toContain(produkt.name);
-
   });
 });
 
 // test.describe('Home', () => {
-
-
 
 //   test('Kliknij Plecak', async ({ page }) => {
 //     const home = new Home(page);
@@ -29,7 +25,6 @@ dane.produkty.forEach(produkt => {
 //       throw new Error('Nie udało się pobrać tekstu z .card-header-title');
 //     }
 
-
 //     let cleanText = text.substring(0, text.length - 3);  // Usuwamy '...' z pobranej nazwy przedmiotu
 
 //     await home.kliknijPlecak();
@@ -38,8 +33,6 @@ dane.produkty.forEach(produkt => {
 //     let pageText = await page.locator('.card-content .title').textContent(); // przypisujemy wartość tytułu do drugiej zmiennej
 
 //     await expect(pageText).toContain(cleanText); // sprawdzamy, czy tytuł ze strony produktu zawiera tytuł z karty
-
-
 
 //   });
 // });
